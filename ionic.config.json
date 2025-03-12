@@ -1,0 +1,7 @@
+{
+  "name": "ActKawaii",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
