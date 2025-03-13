@@ -1,13 +1,47 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>sign-up</ion-title>
+    <ion-title>Sign-up</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">sign-up</ion-title>
+      <ion-title size="large">Sign-up</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <ion-content>
+    <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
+      <!-- Campo para el email -->
+      <div class="mb-6">  
+        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email address {{this.email}}</label>
+        <input type="email" id="email" name="email" [(ngModel)]="email" 
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+          placeholder="john.doe@company.com" required #emailInput="ngModel" />
+        <div  style="color: red;">Please enter a valid email address.</div>
+      </div>
+
+            <!-- Campo para el password -->
+            <div class="mb-6">
+              <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+              <input type="password" id="password" name="password" [(ngModel)]="password" 
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+                placeholder="......" required #passwordInput="ngModel" />
+            </div>
+      
+            <!-- Botón de login -->
+            <button type="submit"
+            class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+              [disabled]="registerForm.invalid">
+              Crear Cuenta
+            </button>
+          </form>
+      
+          <button (click)="onSignUp()"
+          class="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 shadow-lg shadow-cyan-500/50 dark:shadow-lg dark:shadow-cyan-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 ">
+            Go to Login
+          </button>
+      
+  </ion-content>
 </ion-content>
