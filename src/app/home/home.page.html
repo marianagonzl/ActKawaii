@@ -21,8 +21,8 @@
   <ion-list>
     <ion-item *ngFor="let task of tasks$ | async">
       <ion-label>{{ market.item }}</ion-label>
-      <ion-button (click)="editTask(task)" color="warning">Edit</ion-button>
-      <ion-button (click)="deleteTask(task.id!)" color="danger">Delete</ion-button>
+      <ion-button (click)="editItem(item)" color="warning">Edit</ion-button>
+      <ion-button (click)="deleteItem(item.id!)" color="danger">Delete</ion-button>
     </ion-item>
   </ion-list>
 </ion-content>
