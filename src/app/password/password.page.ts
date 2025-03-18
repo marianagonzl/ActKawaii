@@ -56,9 +56,23 @@ async onSubmit() {
 
   onReset() {
     const email = (document.getElementById('email') as HTMLInputElement).value;
-   this.authService.resetPassword(email);
-   console.log(email);
- }
+    this.authService.resetPassword(email).then(() => {
+      // Muestra un mensaje de éxito al usuario
+      this.alertController.create({
+        header: 'Success',
+        message: 'Password reset link has been sent to your email.',
+        buttons: ['OK']
+      }).then(alert => alert.present());
+    }).catch(error => {
+      // Maneja el error (por ejemplo, si el correo no está registrado)
+      this.alertController.create({
+        header: 'Error',
+        message: 'There was an issue sending the reset link. Please check your email.',
+        buttons: ['OK']
+      }).then(alert => alert.present());
+    });
+  }
+  
 
 
 }

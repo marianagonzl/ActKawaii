@@ -27,4 +27,3 @@ export class AuthService {
     return await signOut(this.auth);
   }
 }
-
